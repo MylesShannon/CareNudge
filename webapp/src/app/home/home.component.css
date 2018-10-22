@@ -1,0 +1,198 @@
+#home {
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-banner {
+    width: 680px;
+    border: 1px solid black;
+    background-color: lightgray;
+    margin-right: 20px;
+}
+
+.welcome-signup {
+    align-content: center;
+    padding: 20px 0;
+    min-width: 400px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+    .welcome-signup .welcome-signup-title {
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .welcome-signup-form {
+        padding: 0 20px 0 0;
+    }
+
+        .welcome-signup-form > form {
+            text-align: right;
+        }
+
+            .welcome-signup-form > form > .form-input {
+                margin-top: 30px;
+            }
+
+            .welcome-signup-form > form label {
+                margin-right: 10px;
+            }
+
+            .welcome-signup-form > form input {
+                width: 180px;
+                height: 24px;
+                border: 1px solid black;
+                border-radius: 3px;
+            }
+
+    .welcome-signup .button {
+        cursor: pointer;
+        display: inline-block;
+        width: 115px;
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 3px;
+        border: 1px solid black;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+        .welcome-signup .signup-button {
+            background-color: grey;
+        }
+
+        .welcome-signup .login-button {
+            background-color: lightgray;
+            
+        }
+
+.reasons {
+    margin: 30px 0;
+    width: 1100px;
+}
+
+    .reasons-title {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    .reasons-content {
+        display: flex;
+        width: 100%;
+    }
+
+        .reason {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+            .reason-image {
+                border: 1px solid black;
+                width: 150px;
+                height: 100px;
+                background-color: lightgray;
+            }
+
+            .reason-headline {
+                font-weight: bold;
+                padding: 15px;
+            }
+
+            .reason-description {
+                font-size: 14px;
+            }
+
+            .reason-button {
+                background-color: lightgray;
+                cursor: pointer;
+                align-self: flex-start;
+                font-size: 12px;
+                text-align: center;
+                border: 1px solid black;
+                border-radius: 3px;
+                width: 80px;
+                height: 20px;
+                line-height: 20px;
+                margin-top: 10px;
+            }
+
+@media screen and (max-width: 1140px) {
+    .welcome {
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+
+        .welcome-banner {
+            height: 400px;
+            width: 100%;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+
+        .welcome-signup {
+            width: 100%;
+            min-width: auto;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+            .welcome-signup-title {
+                padding: 0;
+            }
+
+                .welcome-signup-title-br {
+                    display: none;
+                }
+
+            .welcome-signup-form {
+                text-align: center;
+                padding: 0;
+            }
+
+                .welcome-signup-form > form .form-input {
+                    width: 100%;
+                }
+
+                .welcome-signup-form > form label {
+                    display: block;
+                    text-align: left;
+                    width: 100%;
+                }
+
+                .welcome-signup-form > form input {
+                    width: 100%;
+                }
+
+        .reasons {
+            width: 100%;
+        }
+
+            .reasons-content {
+                flex-direction: column;
+                height: 100%;
+            }
+
+                .reason {
+                    box-sizing: border-box;
+                    margin-bottom: 50px;
+                }
+
+                .reason:last-child {
+                    margin-bottom: 0; 
+                }
+}

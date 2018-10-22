@@ -1,0 +1,138 @@
+:host {
+    display: flex;
+    line-height: 60px;
+    width: 100%;
+}
+
+.menu-dropdown {
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+}
+
+    .menu-dropdown > .menu-item {
+        cursor: default;
+        position: relative;
+    }
+
+    .menu-dropdown-items-margin {
+        position: relative;
+        height: 10px;
+        width: 100%;
+        color: transparent;
+        background-color: transparent
+    }
+
+        .menu-dropdown-items-arrow {
+            position: absolute;
+            left: 8px;
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid black;
+        }
+
+    .menu-dropdown-items {
+        z-index: 1001;
+        position: absolute;
+        background-color: white;
+        border: 1px solid black;
+    }
+
+        .menu-dropdown-items .menu-item {
+            width: 100%;
+            white-space: nowrap;
+            box-sizing: border-box;
+            color: black;
+        }
+
+        .menu-dropdown-items .menu-item:hover {
+            background-color: black;
+            color: white;
+        }
+
+.menu-item {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin-right: 28px;
+    color: black;
+    line-height: normal;
+}
+
+.menu-dropdown-arrow {
+    display: inline;
+    position: absolute;
+    top: 13px;
+    right: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid black;
+}
+
+.mobile-navigation {
+    display: none;
+}
+
+@media screen and (max-width: 560px) {
+    .navigation {
+        display: none;
+    }
+
+    .mobile-navigation {
+        display: flex;
+        width: 100%;
+    }
+
+        .mobile-navigation-margin {
+            margin-left: auto;
+        }
+
+        .mobile-navigation-bars .fa {
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 3px;
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+        }
+
+        .mobile-navigation-content {
+            z-index: 1000;
+            position: absolute;
+            top: 82px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            margin: 0 20px;
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+
+            .mobile-menu-dropdown {
+                position: relative;
+            }
+
+                .mobile-menu-dropdown-items {
+                    padding-left: 20px;
+                }
+
+                .mobile-menu-item {
+                    cursor: pointer;
+                    padding: 0 20px;
+                }
+
+                .mobile-menu-item:hover {
+                    background-color: lightgray;
+                }
+
+                    .mobile-menu-item .menu-dropdown-arrow {
+                        top: 29px;
+                        left: 61px;
+                        right: auto;
+                    }
+}

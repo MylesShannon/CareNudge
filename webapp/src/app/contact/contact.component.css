@@ -1,0 +1,11 @@
+#contact {
+    margin-top: 70px;
+}
+
+#contact > div {
+    text-align: center;
+}
+
+a {
+    color: black;
+}

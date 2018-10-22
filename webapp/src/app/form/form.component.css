@@ -1,0 +1,99 @@
+#form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+}
+
+    .form-status-message {
+        margin: 10px 0 18px 0;
+    }
+        .form-status-message .form-message {
+            cursor: default;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+            .form-status-message .form-message > div {
+                padding: 4px 6px;
+                border-radius: 3px;
+                text-align: center;
+            }
+
+            .form-status-message .form-message.success > div {
+                background-color: lightgreen;
+            }
+
+            .form-status-message .form-message.error > div {
+                background-color: lightcoral;
+            }
+
+            .form-status-message .form-message.error {
+                margin-top: -30px;
+            }
+
+            .form-status-message .form-message.success {
+                margin-bottom: -30px;
+            }
+
+    form {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: right;
+    }
+
+        form > .form-group {
+            margin-bottom: 20px;
+        }
+
+            form label {
+                margin-right: 10px;
+            }
+
+            form input, form textarea {
+                width: 180px;
+                height: 28px;
+                border: 1px solid black;
+                border-radius: 3px;
+                padding: 0 4px;
+            }
+
+            form textarea {
+                height: 60px;
+                padding-top: 4px;
+            }
+
+                form .form-textarea > label {
+                    line-height: 26px;
+                }
+
+            form .button {
+                cursor: pointer;
+                display: inline-block;
+                width: 115px;
+                height: 30px;
+                font-size: 12px;
+                text-align: center;
+                line-height: 28px;
+                border-radius: 3px;
+                border: 1px solid black;
+                background-color: grey;
+            }
+
+                form .button[disabled] {
+                    cursor: not-allowed;
+                    color: inherit;
+                }
+
+@media screen and (max-width: 520px) {
+    form {
+        width: 100%;
+    }
+
+        form .form-group {
+            text-align: left;
+        }
+
+            form input {
+                width: 100%;
+            }
+}

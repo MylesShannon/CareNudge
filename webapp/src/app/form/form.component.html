@@ -1,0 +1,34 @@
+<div id="form">
+  <div class="form-status-message">
+      <div [style.opacity]="successState ? '':'0'" class="form-message success">
+        <div>{{form.successMessage || Success!}}</div>
+      </div>
+      <div [style.opacity]="errorState ? '':'0'" class="form-message error">
+        <div>{{form.errorMessage || Error!}}</div>
+      </div>
+  </div>
+  <form #newForm="ngForm">
+    <div *ngFor="let field of form.fields" class="form-group">
+      <span *ngIf="field.type !== 'textarea'">
+        <label for="{{field.name}}">{{field.title}} </label>
+        <input type="{{field.type}}"
+          [required]="field.required"
+          [(ngModel)]="newForm[field.name] = field.defaultValue" 
+          name="{{field.name}}"
+          placeholder="{{field.placeholder}}"
+          #{{field.name}}="ngModel" />
+      </span>
+      <span *ngIf="field.type === 'textarea'" class="form-textarea">
+        <label for="{{field.name}}">{{field.title}} </label>
+        <textarea
+          [required]="field.required"
+          [(ngModel)]="newForm[field.name]" 
+          name="{{field.name}}"
+          placeholder="{{field.placeholder}}"
+          #{{field.name}}="ngModel">
+        </textarea>
+      </span>
+    </div>
+    <button type="submit" class="button" [disabled]="!newForm.form.valid" (click)="add(newForm.value); newForm.reset()">{{form.buttonTitle}}</button>
+  </form>
+</div>

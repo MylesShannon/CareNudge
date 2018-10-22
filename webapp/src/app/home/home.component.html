@@ -1,0 +1,45 @@
+<div id="home">
+  <div class="welcome">
+    <div class="welcome-banner"></div>
+    <div class="welcome-signup">
+      <div class="welcome-signup-title">Sign Up with CareNudge to <br class="welcome-signup-title-br" /> Edit your Provider Profile</div>
+      <div class="welcome-signup-form">
+        <form name="signup">
+          <div class="form-input">
+            <label>First Name</label>
+            <input type="text" />
+          </div>
+          <div class="form-input">
+            <label>Last Name</label>
+            <input type="text" />
+          </div>
+          <div class="form-input">
+            <label>Email Address</label>
+            <input type="email" />
+          </div>
+          <div class="form-input">
+            <label>Password</label>
+            <input type="password" />
+          </div>
+          <div class="form-input">
+            <label>Password Confirm</label>
+            <input type="password" />
+          </div>
+          <div routerLink="#" class="button signup-button" name="signup">Sign Up</div>
+          <div routerLink="#" class="button login-button" name="login">Log In</div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="reasons">
+    <div class="reasons-title">Reasons to Sign Up as a Provider on CareNudge</div>
+    <div class="reasons-content">
+      <div *ngFor="let reason of [1,2,3]" class="reason">
+        <div class="reason-image"></div>
+        <div class="reason-headline">Headline</div>
+        <div class="reason-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis metus elit. Mauris in risus in sem volutpat condimentum ac in leo. Quisque ut lectus id felis elementum accumsan. Phasellus consectetur nisi cursus tristique dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent vel velit orci. Vestibulum.</div>
+        <div routerLink="#" class="reason-button">Learn More</div>
+      </div>
+    </div>
+  </div>
+</div>

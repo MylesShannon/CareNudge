@@ -1,0 +1,13 @@
+<div id="doctors">
+  <span *ngIf="doctors.length > 0 || doctorsSearch !== ''">
+    <h3 *ngIf="doctorsSearch !== ''">Doctor search results for '{{doctorsSearch}}':</h3>
+    <h3 *ngIf="doctorsSearch === '' && doctors.length > 0 && !doctorsSearch && !doctors[0].reviews">All doctors:</h3>
+    <h3 *ngIf="doctorsSearch === '' && doctors.length > 0 && doctors[0].reviews && doctors[0].reviews.length > 0">All doctors with reviews:</h3>
+    <div *ngFor="let doctor of doctors">
+      <app-doctor [doctorId]="doctor.id"></app-doctor>
+    </div>
+  </span>
+  <span *ngIf="doctors.length == 0">
+    <h3>No doctors found...</h3>
+  </span>
+</div>

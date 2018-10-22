@@ -1,0 +1,42 @@
+<span *ngFor="let nav of navigation" class="navigation">
+  <span *ngIf="nav.dropdown">
+    <div class="menu-dropdown" (mouseleave)="nav.show = false">
+        <div class="menu-item" (mouseenter)="nav.show = true">{{nav.title}} <span class="menu-dropdown-arrow"></span>
+          <span *ngIf="nav.show">
+            <div class="menu-dropdown-items-margin">
+                <div class="menu-dropdown-items-arrow"></div>
+            </div>
+            <div class="menu-dropdown-items" (click)="nav.show = false">
+              <div *ngFor="let item of nav.items" routerLink="{{item.route}}" class="menu-item">{{item.title}}</div>
+            </div>
+          </span>
+        </div>
+    </div>
+  </span>
+  <span *ngIf="!nav.dropdown">
+    <div routerLink="{{nav.route}}" class="menu-item">{{nav.title}}</div>
+  </span>
+</span>
+<div class="mobile-navigation">
+  <div class="mobile-navigation-margin"></div>
+  <div class="mobile-navigation-bars" (click)="showMobileNavigation = !showMobileNavigation">
+    <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+  </div>
+  <div *ngIf="showMobileNavigation" class="mobile-navigation-content">
+      <span *ngFor="let nav of navigation">
+        <span *ngIf="nav.dropdown">
+          <div class="mobile-menu-dropdown" (click)="nav.show = !nav.show">
+              <div class="mobile-menu-item">{{nav.title}} <span class="menu-dropdown-arrow"></span></div>
+              <span *ngIf="nav.show">
+                <div class="mobile-menu-dropdown-items">
+                  <div *ngFor="let item of nav.items" routerLink="{{item.route}}" (click)="showMobileNavigation = !showMobileNavigation" class="mobile-menu-item">{{item.title}}</div>
+                </div>
+              </span>
+          </div>
+        </span>
+        <span *ngIf="!nav.dropdown">
+          <div routerLink="{{nav.route}}" (click)="showMobileNavigation = !showMobileNavigation" class="mobile-menu-item">{{nav.title}}</div>
+        </span>
+      </span>
+  </div>
+</div>

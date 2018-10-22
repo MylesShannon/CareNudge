@@ -1,0 +1,69 @@
+<div id="doctor">
+  <span *ngIf="doctor && !isNewDoctor">
+    <div class="doctor-content">
+        <div class="doctor-title">
+          <span [routerLink]="'/doctor/'+doctor.id" [style.cursor]="!isDirectRoute ? '':'default'">Dr. {{doctor.name}}</span> &mdash; <span [routerLink]="doctor.specialty  && '/doctors/'+doctor.specialty" [style.cursor]="doctor.specialty ? '':'default'"><i>{{doctor.specialty || 'none'}}</i></span> ({{doctor.id}})
+        </div>
+        <div class="doctor-delete" (click)="removeDoctor(doctor.id)">
+          <i class="fa fa-close fa-fw"></i>
+        </div>
+        <div class="doctor-description">
+          <b>Description: </b><span [style.font-style]="doctor.description?'':'italic'">{{doctor.description || 'nothing yet...'}}</span>
+        </div>
+        <div class="doctor-reviews" *ngIf="doctor.reviews">
+          <b>Reviews: </b>
+          <span *ngIf="doctor.reviews.length > 0">
+            <div *ngFor="let review of doctor.reviews" class="doctor-review">
+              <div>
+                {{review.id}}: {{review.description}}
+              </div>
+              <div class="review-delete">
+                <i class="fa fa-trash fa-fw" (click)="removeReview(review)"></i>
+              </div>
+            </div>
+          </span>
+          <span *ngIf="doctor.reviews.length == 0">
+            <div class="doctor-review">
+                <i>nothing yet...</i>
+            </div>
+          </span>
+        </div>
+    </div>
+  </span>
+  <span *ngIf="!doctor && !isNewDoctor">
+    <h3>No doctor found :(</h3>
+  </span>
+  <span *ngIf="!doctor && isNewDoctor">
+    <h3>New Doctor</h3>
+    <app-form 
+      [form]="
+        { 
+          fields: [
+            {title: 'Name', name: 'name', placeholder: 'Dr. Example', type: 'text', required: true},
+            {title: 'Specialty', name: 'specialty', placeholder: 'Endocrinologist', type: 'text'},
+            {title: 'Description', name: 'description', placeholder: 'Friendly healthcare...', type: 'text'}
+          ],
+          buttonTitle: 'Add Doctor',
+          successMessage: 'Successfully added Doctor!',
+          errorMessage: 'Error adding Doctor!'
+        }"
+      [store]="doctorStore">
+    </app-form>
+  </span>
+  <span *ngIf="doctor && isDirectRoute">
+    <app-form 
+      [form]="
+        { 
+          fields: [
+            {title: 'Doctor ID', name: 'doctor', placeholder: 123, type: 'number', required: true, defaultValue: doctor.id},
+            {title: 'Description', name: 'description', placeholder: 'Great doctor, would recommend!', type: 'text', required: true}
+          ],
+          buttonTitle: 'Add Review',
+          successMessage: 'Successfully added Review!',
+          errorMessage: 'Error adding Review!'
+        }"
+
+      [store]="reviewStore">
+    </app-form>
+  </span>
+</div>

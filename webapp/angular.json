@@ -23,6 +23,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/npm-font-open-sans/open-sans.css",
               "src/styles.css"
             ],
             "scripts": []

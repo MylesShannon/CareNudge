@@ -1,0 +1,30 @@
+<div id="review">
+  <span *ngIf="!isDirectRoute">
+    <h3>New Review</h3>
+    <app-form 
+      [form]="
+        { 
+          fields: [
+            {title: 'Doctor ID', name: 'doctor', placeholder: 123, type: 'number', required: true},
+            {title: 'Description', name: 'description', placeholder: 'Great doctor, would recommend!', type: 'text', required: true}
+          ],
+          buttonTitle: 'Write Review',
+          successMessage: 'Successfully added Review!',
+          errorMessage: 'Error adding Review!'
+        }"
+
+      [store]="reviewStore">
+    </app-form>
+  </span>
+  <span *ngIf="isDirectRoute">
+      <div class="review-content">
+        <div class="review-title" [routerLink]="'/doctor/'+review.doctor_id"><b>Review: </b>{{review.id}}</div>
+        <div class="review-delete" (click)="remove(review)">
+          <i class="fa fa-close fa-fw"></i>
+        </div>
+        <div class="review-description" [style.font-style]="review.description?'':'italic'">
+          {{review.description || 'nothing yet...'}}
+        </div>
+      </div>
+  </span>
+</div>
