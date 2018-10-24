@@ -9,8 +9,6 @@ import { ReviewService } from '../review.service';
 export class ReviewComponent {
   @Input() review;
 
-  isDirectRoute = this.review === undefined ? true : false;
-
   remove = (review) => {
     this.reviewStore.remove(
       review,

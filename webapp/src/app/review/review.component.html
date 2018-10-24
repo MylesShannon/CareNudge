@@ -1,5 +1,5 @@
 <div id="review">
-  <span *ngIf="!isDirectRoute">
+  <span *ngIf="review === undefined">
     <h3>New Review</h3>
     <app-form 
       [form]="
@@ -16,7 +16,7 @@
       [store]="reviewStore">
     </app-form>
   </span>
-  <span *ngIf="isDirectRoute">
+  <span *ngIf="review !== undefined">
       <div class="review-content">
         <div class="review-title" [routerLink]="'/doctor/'+review.doctor_id"><b>Review: </b>{{review.id}}</div>
         <div class="review-delete" (click)="remove(review)">
